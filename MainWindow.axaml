@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mvc="using:Lr9.MVC"
+        xmlns:mvp="using:Lr9.MVP"
+        xmlns:mvvm="using:Lr9.MVVM"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Lr9.MainWindow"
+        Title="Лабораторна робота №9 - Патерни проєктування">
+    
+    <Grid>
+        <TabControl>
+            <TabItem Header="MVC">
+                <mvc:MvcView />
+            </TabItem>
+            <TabItem Header="MVP">
+                <mvp:MvpView />
+            </TabItem>
+            <TabItem Header="MVVM">
+                <mvvm:MvvmView />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

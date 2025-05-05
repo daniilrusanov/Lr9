@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Lr9.MVVM"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Lr9.MVVM.MvvmView">
+
+    <UserControl.DataContext>
+        <vm:ResourceEfficiencyViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                   Text="Модель-Вид-ВиглядМоделі (MVVM)" 
+                   FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" 
+                   Text="Вигоди від ресурсу:" 
+                   VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" 
+                 Text="{Binding Benefits}" 
+                 Margin="0,5"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" 
+                   Text="Загальні витрати:" 
+                   VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" 
+                 Text="{Binding Costs}" 
+                 Margin="0,5"/>
+
+        <Button Grid.Row="3" Grid.Column="1" 
+                Command="{Binding CalculateCommand}" 
+                Content="Розрахувати" 
+                HorizontalAlignment="Left" 
+                Margin="0,10"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" 
+                   Text="Коефіцієнт ефективності:" 
+                   VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" 
+                   Text="{Binding Result, StringFormat=F2}" 
+                   FontWeight="Bold" 
+                   VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
+                   Text="{Binding ErrorMessage}" 
+                   Foreground="Red" 
+                   Margin="0,5"/>
+
+        <!-- Опис патерну -->
+        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                BorderBrush="LightGray" BorderThickness="1" 
+                Margin="0,20,0,0" Padding="10">
+            <TextBlock TextWrapping="Wrap">
+                Патерн MVVM (Модель-Вид-ViewModel) - це еволюція патернів MVC і MVP. 
+                У цьому патерні ViewModel виступає посередником між Моделлю та Видом, 
+                але зв'язок між Видом і ViewModel реалізовано за допомогою механізму 
+                прив'язки даних (Data Binding). Це зменшує кількість коду та спрощує 
+                розробку. MVVM часто використовується у WPF та інших XAML-платформах.
+            </TextBlock>
+        </Border>
+    </Grid>
+</UserControl>
