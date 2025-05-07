@@ -1,8 +1,6 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Avalonia.Controls;
-using Avalonia.Interactivity;
 using System.Windows.Input;
 
 namespace Lr9.MVVM
@@ -18,7 +16,9 @@ namespace Lr9.MVVM
         public ResourceEfficiencyViewModel()
         {
             _model = new ResourceEfficiencyModel();
-            CalculateCommand = new RelayCommand(CalculateEfficiency, CanCalculate);
+            // Встановлюємо початкові значення
+            Benefits = 100;
+            Costs = 50;
         }
 
         public double Benefits
@@ -30,6 +30,7 @@ namespace Lr9.MVVM
                 {
                     _benefits = value;
                     OnPropertyChanged();
+                    CalculateEfficiency();
                 }
             }
         }
@@ -43,6 +44,7 @@ namespace Lr9.MVVM
                 {
                     _costs = value;
                     OnPropertyChanged();
+                    CalculateEfficiency();
                 }
             }
         }
@@ -73,15 +75,7 @@ namespace Lr9.MVVM
             }
         }
 
-        public ICommand CalculateCommand { get; }
-
-        private bool CanCalculate(object parameter)
-        {
-            // Можна додати більш складну логіку валідації
-            return true;
-        }
-
-        private void CalculateEfficiency(object parameter)
+        private void CalculateEfficiency()
         {
             try
             {
@@ -101,36 +95,6 @@ namespace Lr9.MVVM
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
-
-    // Проста реалізація ICommand для MVVM
-    public class RelayCommand : ICommand
-    {
-        private readonly Action<object> _execute;
-        private readonly Func<object, bool> _canExecute;
-
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null || _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-
-        public event EventHandler CanExecuteChanged;
-
-        public void RaiseCanExecuteChanged()
-        {
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

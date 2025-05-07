@@ -17,7 +17,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -43,27 +42,24 @@
                  Text="{Binding Costs}" 
                  Margin="0,5"/>
 
-        <Button Grid.Row="3" Grid.Column="1" 
-                Command="{Binding CalculateCommand}" 
-                Content="Розрахувати" 
-                HorizontalAlignment="Left" 
-                Margin="0,10"/>
-
-        <TextBlock Grid.Row="4" Grid.Column="0" 
+        <TextBlock Grid.Row="3" Grid.Column="0" 
                    Text="Коефіцієнт ефективності:" 
-                   VerticalAlignment="Center"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" 
+                   VerticalAlignment="Center"
+                   Margin="0,10,0,0"/>
+        
+        <TextBlock Grid.Row="3" Grid.Column="1" 
                    Text="{Binding Result, StringFormat=F2}" 
                    FontWeight="Bold" 
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center"
+                   Margin="10,10,0,0"/>
 
-        <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" 
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
                    Text="{Binding ErrorMessage}" 
                    Foreground="Red" 
                    Margin="0,5"/>
 
         <!-- Опис патерну -->
-        <Border Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+        <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                 BorderBrush="LightGray" BorderThickness="1" 
                 Margin="0,20,0,0" Padding="10">
             <TextBlock TextWrapping="Wrap">

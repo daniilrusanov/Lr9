@@ -128,3 +128,4 @@
 /home/daniilrusanov/University/FrontEnd/PIC/Lr9/Lr9/obj/Debug/net9.0/Lr9.csproj.Up2Date
 /home/daniilrusanov/University/FrontEnd/PIC/Lr9/Lr9/obj/Debug/net9.0/Lr9.genruntimeconfig.cache
 /home/daniilrusanov/University/FrontEnd/PIC/Lr9/Lr9/obj/Debug/net9.0/ref/Lr9.dll
+/home/daniilrusanov/University/FrontEnd/PIC/Lr9/Lr9/obj/Debug/net9.0/Lr9.sourcelink.json
